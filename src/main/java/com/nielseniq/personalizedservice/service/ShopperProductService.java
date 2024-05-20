@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class ShopperProductService {
@@ -22,7 +23,7 @@ public class ShopperProductService {
     public void saveShopperProduct(ShopperProductCollection shopperProductCollection) {
         for(Product product:shopperProductCollection.getShelf())
         {
-            ShopperProduct shopperProduct=new ShopperProduct(shopperProductCollection.getShopperId(),product.getProductId(),product.getRelevancyScore());
+            ShopperProduct shopperProduct=new ShopperProduct(UUID.randomUUID().toString(),shopperProductCollection.getShopperId(),product.getProductId(),product.getRelevancyScore());
             shopperProductRepository.save(shopperProduct);
 
         }

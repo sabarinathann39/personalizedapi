@@ -10,6 +10,15 @@ Kindly follow the below steps to start the application
   b) can also build the docker image and start as an application
 
 
+
+#End points
+A)To save the meta data
+POST http://localhost:8080/internal/v1/product/metadata
+B)To save  shopper product
+POST http://localhost:8080/internal/v1/shopper/product
+C)To Get Shopper Product
+http://localhost:8080/external/v1/{$shopperid}/product?brand={$brandname}&category={$categoryname}&offset={$offset}&limit={$limit}
+
 #Performance consideration:
 
 1.using Ratelimiter to make sure the application does not egt overwhelmed by too many request

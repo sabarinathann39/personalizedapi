@@ -10,10 +10,10 @@ import java.util.List;
 @Table(name="txn_shopper_product")
 public class ShopperProduct {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+   // @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
 
-    private Long id;
+    private String id;
     @Column(name = "shopper_id")
 
     private String shopperId;
@@ -26,11 +26,11 @@ public class ShopperProduct {
     private Double relevancyScore;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -58,7 +58,12 @@ public class ShopperProduct {
         this.relevancyScore = relevancyScore;
     }
 
-    public ShopperProduct(String shopperId, String productId, Double relevancyScore) {
+   public ShopperProduct(){
+
+   }
+    public ShopperProduct(String uuid,String shopperId, String productId, Double relevancyScore) {
+
+        this.id=uuid;
         this.shopperId = shopperId;
         this.productId = productId;
         this.relevancyScore = relevancyScore;
