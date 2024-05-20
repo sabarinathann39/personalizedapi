@@ -1,0 +1,18 @@
+services:
+
+  redis:
+    container_name: redis
+    image: 'redis:latest'
+    ports:
+      - 6379:6379
+  postgres:
+    container_name: postgres
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=Nielsen_S3cret
+      - POSTGRES_USER=Nielsen_Admin
+      - POSTGRES_DB=niq
